@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/demo/BottomNavigationBarDemo.dart';
+import 'demo/DrawerDemo.dart';
 import 'demo/ListViewDemo.dart';
 
 void main() {
@@ -25,7 +27,11 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // 去掉 debug 标记
       home: const Home(),
-      theme: ThemeData(primarySwatch: Colors.amber),
+      theme: ThemeData(
+        primarySwatch: Colors.lime, 
+        highlightColor: const Color.fromRGBO(255, 255, 255, 0.5), 
+        splashColor: Colors.white70 //水波纹
+          ),
     );
   }
 }
@@ -35,13 +41,51 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        title: const Text('hello'),
-        elevation: 8.0, //阴影 0.0 去阴影
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          title: Text('hello'.toUpperCase()),
+          elevation: 8.0, //阴影 0.0 去阴影
+          // 默认有 menu 侧栏 按钮
+          // leading: IconButton(
+          //     icon: const Icon(Icons.menu),
+          //     tooltip: 'Navigation',
+          //     onPressed: () => debugPrint('Navigation button is pressed')),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.search), 
+              tooltip: 'Search', 
+              onPressed: () => debugPrint('Search button is pressed')
+            ), 
+            IconButton(
+              icon: const Icon(Icons.login), 
+              tooltip: 'Login', 
+              onPressed: () => debugPrint('Login button is pressed')
+              )
+            ],
+          bottom: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.local_florist)), 
+              Tab(icon: Icon(Icons.change_history)), 
+              Tab(icon: Icon(Icons.directions_bike))]),
+        ),
+        //body: const Hello(),
+        //body: const ListViewDemo(),
+        body: const TabBarView(
+          children: [
+            ListViewDemo(), 
+            Icon(Icons.change_history, size: 128.0, color: Colors.black12), 
+            Icon(Icons.directions_bike, size: 128.0, color: Colors.black12)
+          ]
+        ),
+        // drawer: 左侧栏
+        drawer: const DrawerDemo(),
+        // endDrawer: 右侧栏 - Container 自定义
+        endDrawer: const EndDrawerDemo(),
+        bottomNavigationBar: const BottomNavigationBarDemo(),
       ),
-      body: const Hello(),
     );
   }
 }
@@ -56,8 +100,7 @@ class Hello extends StatelessWidget {
         'hello',
         textDirection: TextDirection.ltr,
         // 文字样式
-        style: TextStyle(
-            fontSize: 40.0, fontWeight: FontWeight.bold, color: Colors.amber),
+        style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold, color: Colors.amber),
       ),
     );
   }
