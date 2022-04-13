@@ -5,6 +5,7 @@ import 'demo/ListViewDemo.dart';
 import 'demo/BasicDemo.dart';
 import 'demo/LayoutDemo.dart';
 import 'demo/ViewDemo.dart';
+import 'demo/SliverDemo.dart';
 
 void main() {
   // runApp(const Center(
@@ -29,6 +30,7 @@ class App extends StatelessWidget {
     // );
     return MaterialApp(
       debugShowCheckedModeBanner: false, // 去掉 debug 标记
+      // home: const SliverDemo(),
       home: const Home(),
       theme: ThemeData(
         primarySwatch: Colors.lime, 
