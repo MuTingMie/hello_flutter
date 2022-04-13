@@ -15,13 +15,13 @@ class ViewDemo extends StatelessWidget {
     // return const PageViewBuilderDemo();
 
     // GridView
-    return const GridViewDemo();
+    return const GridViewCountDemo();
   }
 }
 
-// GridViewDemo
-class GridViewDemo extends StatelessWidget {
-  const GridViewDemo({ Key? key }) : super(key: key);
+// GridViewCountDemo
+class GridViewCountDemo extends StatelessWidget {
+  const GridViewCountDemo({ Key? key }) : super(key: key);
 
   List<Widget> _buildTiles(int length) {
     return List.generate(length, (index) {
