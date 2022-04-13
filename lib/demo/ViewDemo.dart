@@ -3,6 +3,19 @@ import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget {
   const ViewDemo({ Key? key }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    // PageView 
+    // return const PageViewDemo();
+
+    // PageView builder
+    return const PageViewBuilderDemo();
+  }
+}
+
+
+class PageViewBuilderDemo extends StatelessWidget {
+  const PageViewBuilderDemo({ Key? key }) : super(key: key);
 
   Widget _pageItemBuilder(BuildContext context, int index) {
     return Stack(
@@ -35,8 +48,6 @@ class ViewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return const PageViewDemo();
-
     // PageView builder
     return PageView.builder(
       itemCount: posts.length,
@@ -44,7 +55,6 @@ class ViewDemo extends StatelessWidget {
     );
   }
 }
-
 
 
 class PageViewDemo extends StatelessWidget {
