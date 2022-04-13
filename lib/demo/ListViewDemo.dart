@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../demo/PostShow.dart';
 import '../model/post.dart';
 
 class ListViewDemo extends StatelessWidget {
@@ -39,7 +40,12 @@ class ListViewDemo extends StatelessWidget {
                 splashColor: Colors.white.withOpacity(0.3),
                 highlightColor: Colors.white.withOpacity(0.1),
                 onTap: (){
-                  debugPrint('Tap');
+                  debugPrint('ListViewDemoTap');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => PostShow(posts[index])
+                    )
+                  );
                 },
               ),
             ),
