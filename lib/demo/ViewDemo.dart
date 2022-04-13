@@ -8,14 +8,47 @@ class ViewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // PageView 
+    // PageViewDemo 
     // return const PageViewDemo();
 
-    // PageView builder
+    // PageViewBuilderDemo
     // return const PageViewBuilderDemo();
 
-    // GridView
-    return const GridViewCountDemo();
+    // GridViewCountDemo
+    // return const GridViewCountDemo();
+
+    // GridViewExtentDemo
+    return const GridViewExtentDemo();
+  }
+}
+
+// GridViewExtentDemo
+class GridViewExtentDemo extends StatelessWidget {
+  const GridViewExtentDemo({ Key? key }) : super(key: key);
+
+  List<Widget> _buildTiles(int length) {
+    return List.generate(length, (index) {
+      return Container(
+        color: Colors.grey[300],
+        alignment: const Alignment(0.0, 0.0),
+        child: Text(
+          'item $index',
+          style: const TextStyle(fontSize: 18.0, color: Colors.grey),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.extent(
+      maxCrossAxisExtent: 100.0, // 主轴最大 尺寸
+      // 主轴方向 Axis.horizontal 水平方向 默认 垂直方向 Axis.vertical 
+      scrollDirection: Axis.horizontal, 
+      crossAxisSpacing: 16.0, // 侧轴 cell 边距
+      mainAxisSpacing: 16.0, // 主轴 cell 边距
+      children: _buildTiles(100),
+    );
   }
 }
 
