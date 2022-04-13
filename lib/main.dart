@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
@@ -75,7 +75,9 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.local_florist)), 
               Tab(icon: Icon(Icons.change_history)), 
               Tab(icon: Icon(Icons.directions_bike)),
-              Tab(icon: Icon(Icons.view_quilt))
+              Tab(icon: Icon(Icons.collections)),
+              Tab(icon: Icon(Icons.list)),
+              //Tab(icon: Icon(Icons.grid_view))
             ]),
         ),
         //body: const Hello(),
@@ -83,11 +85,11 @@ class Home extends StatelessWidget {
         body: const TabBarView(
           children: [
             ListViewDemo(), 
-            //Icon(Icons.change_history, size: 128.0, color: Colors.black12),
             BasicDemo(),
             LayoutDemo(),
-            //Icon(Icons.directions_bike, size: 128.0, color: Colors.black12)
-            ViewDemo(),
+            ViewDemo(), 
+            SliverDemo(),
+            //Icon(Icons.view_quilt, size: 128.0, color: Colors.black12)
           ]
         ),
         // drawer: 左侧栏

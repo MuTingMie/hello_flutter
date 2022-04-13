@@ -6,15 +6,30 @@ class SliverDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar( // 设置了一个 appbar
-            title: Text('SliverAppBar'),
-            // pinned: true, // 向上滚动时 固定 SliverAppBar
+            // title: const Text('SliverAppBar'),
+            // pinned: true, // 向上滚动时 固定 SliverAppBar 默认 false
             floating: true, // SliverAppBar 会一起向上滚动 默认 true
+            expandedHeight: 120.0, // SliverAppBar 最大高度
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                "你好👋 Flutter".toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 15.0,
+                  letterSpacing: 3.0,
+                  fontWeight: FontWeight.w400
+                ),
+              ),
+              background: Image.network(
+                "https://cdn.jsdelivr.net/gh/MuTingMie/material/img/202203271547943.jpg",
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          SliverSafeArea( // 在安全区域显示
+          const SliverSafeArea( // 在安全区域显示
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
               sliver: SliverListDemo(),
