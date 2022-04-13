@@ -9,6 +9,11 @@ class SliverDemo extends StatelessWidget {
     return const Scaffold(
       body: CustomScrollView(
         slivers: [
+          SliverAppBar( // 设置了一个 appbar
+            title: Text('SliverAppBar'),
+            // pinned: true, // 向上滚动时 固定 SliverAppBar
+            floating: true, // SliverAppBar 会一起向上滚动 默认 true
+          ),
           SliverSafeArea( // 在安全区域显示
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
