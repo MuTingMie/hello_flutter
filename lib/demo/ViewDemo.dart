@@ -18,7 +18,39 @@ class ViewDemo extends StatelessWidget {
     // return const GridViewCountDemo();
 
     // GridViewExtentDemo
-    return const GridViewExtentDemo();
+    return const GridViewBuilderDemo();
+  }
+}
+
+// GridViewBuilderDemo
+class GridViewBuilderDemo extends StatelessWidget {
+  const GridViewBuilderDemo({ Key? key }) : super(key: key);
+
+  Widget _gridViewItemBuilder(BuildContext context, int index) {
+    return Image.network(
+      posts[index].imageUrl,
+      fit: BoxFit.cover,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: const EdgeInsets.all(8.0),
+      itemCount: posts.length,
+      itemBuilder: _gridViewItemBuilder,
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 200.0,
+        crossAxisSpacing: 16.0,
+        mainAxisSpacing: 16.0
+      )
+
+      // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      //   crossAxisCount: 3,
+      //   crossAxisSpacing: 16.0,
+      //   mainAxisSpacing: 16.0
+      // )
+    );  
   }
 }
 
