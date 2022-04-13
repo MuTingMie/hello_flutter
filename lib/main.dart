@@ -6,6 +6,7 @@ import 'demo/BasicDemo.dart';
 import 'demo/LayoutDemo.dart';
 import 'demo/ViewDemo.dart';
 import 'demo/SliverDemo.dart';
+import 'demo/NavigatorDemo.dart';
 
 void main() {
   // runApp(const Center(
@@ -31,7 +32,14 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // 去掉 debug 标记
       // home: const SliverDemo(),
-      home: const Home(),
+      // home: const Home(),
+      // home: const NavigatorDemo(),
+
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => const NavigatorDemo(),
+        '/about' : (context) => const PageDemo(title: 'Ablout'),
+      },
       theme: ThemeData(
         primarySwatch: Colors.lime, 
         highlightColor: const Color.fromRGBO(255, 255, 255, 0.5), 
