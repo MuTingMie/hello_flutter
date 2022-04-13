@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/demo/BottomNavigationBarDemo.dart';
 import 'demo/DrawerDemo.dart';
+import 'demo/BottomNavigationBarDemo.dart';
 import 'demo/ListViewDemo.dart';
 import 'demo/BasicDemo.dart';
+import 'demo/LayoutDemo.dart';
 
 void main() {
   // runApp(const Center(
@@ -77,8 +78,9 @@ class Home extends StatelessWidget {
         body: const TabBarView(
           children: [
             ListViewDemo(), 
+            //Icon(Icons.change_history, size: 128.0, color: Colors.black12),
             BasicDemo(),
-            Icon(Icons.change_history, size: 128.0, color: Colors.black12), 
+            LayoutDemo()
             //Icon(Icons.directions_bike, size: 128.0, color: Colors.black12)
           ]
         ),
