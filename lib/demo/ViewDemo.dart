@@ -3,17 +3,52 @@ import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget {
   const ViewDemo({ Key? key }) : super(key: key);
+
+  
+
   @override
   Widget build(BuildContext context) {
     // PageView 
     // return const PageViewDemo();
 
     // PageView builder
-    return const PageViewBuilderDemo();
+    // return const PageViewBuilderDemo();
+
+    // GridView
+    return const GridViewDemo();
   }
 }
 
+// GridViewDemo
+class GridViewDemo extends StatelessWidget {
+  const GridViewDemo({ Key? key }) : super(key: key);
 
+  List<Widget> _buildTiles(int length) {
+    return List.generate(length, (index) {
+      return Container(
+        color: Colors.grey[300],
+        alignment: const Alignment(0.0, 0.0),
+        child: Text(
+          'item $index',
+          style: const TextStyle(fontSize: 18.0, color: Colors.grey),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      scrollDirection: Axis.vertical, // 主轴方向 默认 Axis.vertical
+      crossAxisCount: 2, // 侧轴 每行个数
+      crossAxisSpacing: 16.0, // 侧轴 cell 边距
+      mainAxisSpacing: 16.0, // 主轴 cell 边距
+      children: _buildTiles(100),
+    );
+  }
+}
+
+// PageViewBuilderDemo
 class PageViewBuilderDemo extends StatelessWidget {
   const PageViewBuilderDemo({ Key? key }) : super(key: key);
 
@@ -56,7 +91,7 @@ class PageViewBuilderDemo extends StatelessWidget {
   }
 }
 
-
+// PageViewDemo
 class PageViewDemo extends StatelessWidget {
   const PageViewDemo({ Key? key }) : super(key: key);
 
