@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/demo/FormDemo.dart';
 import 'demo/DrawerDemo.dart';
 import 'demo/BottomNavigationBarDemo.dart';
 import 'demo/ListViewDemo.dart';
@@ -35,16 +36,17 @@ class App extends StatelessWidget {
       // home: const Home(),
       // home: const NavigatorDemo(),
 
-      initialRoute: '/',
+      initialRoute: '/form',
       routes: {
-        '/' : (context) => const NavigatorDemo(),
+        '/' : (context) => const Home(),
         '/about' : (context) => const PageDemo(title: 'Ablout'),
+        '/form' : (context) => const FormDemo(),
       },
       theme: ThemeData(
         primarySwatch: Colors.lime, 
         highlightColor: const Color.fromRGBO(255, 255, 255, 0.5), 
         splashColor: Colors.white70 //水波纹
-          ),
+      ),
     );
   }
 }
