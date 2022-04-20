@@ -8,6 +8,9 @@ import 'RadioDemo.dart';
 import 'SwitchDemo.dart';
 import 'SliderDemo.dart';
 import 'DateTimeDemo.dart';
+import 'SimpleDialogDemo.dart';
+import 'AlertDialogDemo.dart';
+import 'BottomSheetDemo.dart';
 
 class MaterialComponents extends StatelessWidget {
   const MaterialComponents({Key? key}) : super(key: key);
@@ -21,6 +24,9 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: const [
+          ListItem('BottomSheetDemo', BottomSheetDemo()),
+          ListItem('AlertDialogDemo', AlertDialogDemo()),
+          ListItem('SimpleDialogDemo', SimpleDialogDemo()),
           ListItem('DateTimeDemo', DateTimeDemo()),
           ListItem('SliderDemo', SliderDemo()),
           ListItem('SwitchDemo', SwitchDemo()),
