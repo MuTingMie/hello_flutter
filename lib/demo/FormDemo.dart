@@ -6,6 +6,10 @@ class FormDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('FormDemo'),
+        elevation: 0.0
+      ),
       // body: ThemeDemo(),
       body: Theme(
         data: Theme.of(context).copyWith( // 只覆盖这里设置的
