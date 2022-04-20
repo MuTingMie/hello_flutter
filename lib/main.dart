@@ -8,6 +8,7 @@ import 'demo/LayoutDemo.dart';
 import 'demo/ViewDemo.dart';
 import 'demo/SliverDemo.dart';
 import 'demo/NavigatorDemo.dart';
+import 'demo/MaterialComponents.dart';
 
 void main() {
   // runApp(const Center(
@@ -36,16 +37,62 @@ class App extends StatelessWidget {
       // home: const Home(),
       // home: const NavigatorDemo(),
 
-      initialRoute: '/form',
+      initialRoute: '/mdc',
       routes: {
         '/' : (context) => const Home(),
         '/about' : (context) => const PageDemo(title: 'Ablout'),
         '/form' : (context) => const FormDemo(),
+        '/mdc' : (context) => const MaterialComponents()
       },
       theme: ThemeData(
-        primarySwatch: Colors.lime, 
-        highlightColor: const Color.fromRGBO(255, 255, 255, 0.5), 
-        splashColor: Colors.white70 //水波纹
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,//Colors.red, 
+          // primary: Colors.red,//teal
+          // onPrimary: Colors.white,
+          // primaryContainer: Colors.red,
+          //brightness: Brightness.light,
+          //shadow: Colors.blue,
+          
+          
+          //background: Colors.orange
+        ),
+        // 历史遗留
+        //primarySwatch: Colors.teal,
+        //highlightColor: const Color.fromRGBO(255, 255, 255, 0.5), 
+        // splashColor: Colors.blue, //水波纹
+        // floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        //   backgroundColor: Colors.lightGreen,
+        //   foregroundColor: Colors.brown,
+        // ),
+        // elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
+        //   backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.primary),//Colors.teal),
+        //   foregroundColor: MaterialStateProperty.all(Colors.white),
+        //   splashFactory: InkSplash.splashFactory
+        // )),
+        // textButtonTheme: TextButtonThemeData(style: ButtonStyle(
+        //   backgroundColor: MaterialStateProperty.all(Colors.teal),
+        //   foregroundColor: MaterialStateProperty.all(Colors.white),
+        //   splashFactory: InkSplash.splashFactory
+        // )),
+        // buttonTheme: const ButtonThemeData(
+        //   splashColor: Colors.red,
+        // ),
+        // sliderTheme: ,
+        outlinedButtonTheme: OutlinedButtonThemeData(style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.teal),
+          foregroundColor: MaterialStateProperty.all(Colors.white),
+          
+          side: MaterialStateProperty.all(const BorderSide(
+            color: Colors.red,
+            width: 1.0,
+            style: BorderStyle.solid
+            // Container BoxDecoration
+          )),
+          
+          // splashFactory: NoSplash.splashFactory
+          // splashFactory: InkSplash.splashFactory
+          splashFactory: InkRipple.splashFactory
+        ))
       ),
     );
   }
